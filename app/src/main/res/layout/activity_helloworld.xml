@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- 自定义binding类名 -->
+    <!-- <data class="HelloworldBinding"> -->
+    <!-- <data class="cn.bingoogolapple.databinding.activity.HelloworldBinding"> -->
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="java.util.List" />
+
+        <variable
+            name="activityUserViewModel"
+            type="cn.bingoogolapple.databinding.viewmodel.UserViewModel" />
+
+        <variable
+            name="test"
+            type="String" />
+
+        <variable
+            name="strList"
+            type="List&lt;String>" />
+
+        <variable
+            name="userList"
+            type="List&lt;cn.bingoogolapple.databinding.model.User>" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/inc_phone"
+            app:userViewModel="@{activityUserViewModel}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{activityUserViewModel.user.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bingoogolapple是男人"
+            android:visibility="@{activityUserViewModel.user.isMan?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{activityUserViewModel.user.isMan?@string/man:@string/woman}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(activityUserViewModel.user.age)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{test}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{strList[1]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userList[1].name}" />
+
+    </LinearLayout>
+
+</layout>
